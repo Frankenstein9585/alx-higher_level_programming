@@ -7,9 +7,4 @@ def print_last_digit(number):
         last = (number % 10 - 10) * -1
     else:
         last = number % 10
-    print('{:d}'.format(last), end ='')
-
-print_last_digit(98)
-print_last_digit(0)
-r = print_last_digit(-1024)
-print(r)
+    return last
