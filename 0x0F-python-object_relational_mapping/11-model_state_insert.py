@@ -18,10 +18,7 @@ def main():
     session.add(new_state)
     session.commit()
 
-    states = session.query(State).order_by(State.id)
-
-    for state in states:
-        print('{}: {}'.format(state.id, state.name))
+    print(new_state.id)
 
 
 if __name__ == '__main__':
