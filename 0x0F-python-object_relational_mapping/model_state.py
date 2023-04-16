@@ -24,4 +24,4 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
 
-Base.metadata.create_all(engine)
+#Base.metadata.create_all(engine)
