@@ -5,14 +5,20 @@ from model_state import State, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                       format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                       echo=False)
 
-Session = sessionmaker(bind=engine)
-session = Session()
+def main():
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
+                           format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           echo=False)
 
-states = session.query(State).order_by(State.id)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-for state in states:
-    print('{}: {}'.format(state.id, state.name))
+    states = session.query(State).order_by(State.id)
+
+    for state in states:
+        print('{}: {}'.format(state.id, state.name))
+
+
+if __name__ == '__main__':
+    main()
