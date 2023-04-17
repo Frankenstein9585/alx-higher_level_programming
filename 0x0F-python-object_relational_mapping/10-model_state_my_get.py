@@ -14,15 +14,12 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State)
+    state = session.query(State).filter(State.name == sys.argv[4]).first()
 
-    for state in states:
-        if sys.argv[4] == state.name:
-            print(state.id)
-            break
-        else:
-            print('Not found')
-            break
+    if state:
+        print(state.id)
+    else:
+        print('Not found')
 
 
 if __name__ == '__main__':
