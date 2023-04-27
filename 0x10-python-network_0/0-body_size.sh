@@ -1,3 +1,3 @@
 #!/bin/bash
-url=$1
-curl -s -w "%{size_download}\n" $url | tail -n 1
+# This script prints the size of the body of a response
+curl -s -w "%{size_download}\n" "$1" | tail -n 1
